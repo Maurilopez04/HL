@@ -9,6 +9,7 @@ body {
 a {
     text-decoration: none;
 }
+
 h2 {
     text-decoration: double;
     color: rgb(255, 255, 255);
@@ -83,6 +84,7 @@ img.header-img {
     flex-grow: 1;
     text-align: center;
 }
+
 .btn-login {
     color: rgb(70, 70, 70);
     box-shadow: 0 0 10px rgba(255, 6, 6, 0.6);
@@ -183,8 +185,7 @@ footer {
     line-height: 2.5;
     font-weight: 100;
 }
-.single-box h2,
-h1 {
+.single-box h2 {
     color: #fff;
     font-size: 20px;
     font-weight: 700;

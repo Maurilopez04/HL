@@ -16,23 +16,27 @@
     }
     hr{
     color: white;}</style>
+    <?php include 'buscador-style.php';?>
 </head>
-  <body class="text-center bg-black m-1">
+  <body class="text-center bg-black m-auto">
     <nav class="navbar fixed-top p-3 pt-3 pb-3 header">
         <div class="container-fluid p-2">
           <a class="text-black link-secondary " href="index.php"><img width="180px" src="img/logo.png" alt="" srcset=""></a>
           <div class="centered-element cel-none">
-          <form class="buscador" action="resultados.php" method="get">
-<input class="Search" type="text" name="busqueda" placeholder="Buscar producto, modelo, categoria" aria-label="Search" id="buscado" required>
+
+          <form class="searchBox " action="resultados.php" method="get">
+<input class="searchInput" type="text" name="busqueda" placeholder="Buscar producto, modelo, categoria" aria-label="Search" required>
 <input type="hidden" id="search-type" value="all">
-<button class="btn-search dark"type="submit" name="enviar" value="Buscar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+<button class="searchButton"type="submit" name="enviar" value="Buscar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
 </svg> </button>   
 </form>
+
+
           </div>
                    <div>
-          <button class="navbar-toggler bg-white border-radius-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <button class="navbar-toggler navbar-dark border-radius-2" style="background: var(--gradient-2, linear-gradient(90deg, darkred 0%, red 100%));" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon white"></span>
           </button>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header bg-black">
@@ -56,7 +60,7 @@
                   </a>
                   <ul class="dropdown-menu bg-black">
                     <li><a class="nav-link text-white" href="https://goo.gl/maps/Xtx2LfqqBQJtF2j16" target="_blank"><i class="fa-solid fa-map-pin"></i> Casa Central</a></li>
-                    <li><a class="nav-link text-white" href="https://www.facebook.com/profile.php?id=100056706925841"><i class="fa-solid fa-map-pin"></i> Centro de Instalaciones</a></li>
+                    <li><a class="nav-link text-white" href="https://goo.gl/maps/Xtx2LfqqBQJtF2j16" target="_blank"><i class="fa-solid fa-map-pin"></i> Centro de Instalaciones</a></li>
                   </ul>
     <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,13 +70,11 @@
                     <li><a class="nav-link text-white" href="https://www.instagram.com/hltuningpy_/">Instagram</a></li>
                     <li><a class="nav-link text-white" href="https://www.facebook.com/profile.php?id=100056706925841">Facebook</a></li>
                     <li><a class="nav-link text-white" href="https://www.tiktok.com/@hltuningpy">TikTok</a></li>
-
                   </ul>
                 </li>
                  <li><a href="services.php" class="nav-link text-white"><i class="fa-solid fa-car"></i> Servicios</a></li>
                    <li><a href="contacto.php" class="nav-link text-white"><i class="fa-solid fa-message"></i> Formulario de Contacto</a></li>
       <li>    </li>
-
                </ul>
             </div>
             <div class="navbar-fixed-bottom mb-0 text-white" style="background-color: #030303;">
@@ -83,7 +85,6 @@
 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
 </svg></button>    
 </form> 
-
             <p class="cel-none"><i class="fa-solid fa-phone"></i> 0983047400</p>
             <p class=""><i class="fa-solid fa-envelope"></i> hltuning@hltuning.com</p>
             <a class="btn btn-success mb-2 mt-1 pc-none" href="tel:+595983047400"><i class="fa-solid fa-phone"></i> 0983047400</a>
@@ -91,9 +92,7 @@
           </div>
           </div>
         </div>
-
       </nav>
-
       <div class="p-4"></div>
 <main class="container mt-4">
    

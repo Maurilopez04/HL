@@ -25,57 +25,7 @@ try {
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick-theme.css">
     <title>HL TUNING</title>
-    <style>
-      .searchBox {
-        margin: auto;
-    display: flex;
-    max-width: 410px;
-    align-items: center;
-    justify-content: space-between;
-    
-    background: white;
-    border-radius: 50px;   
-    position: relative;
-}
-
-.searchButton {
-    color: white;
-    position: absolute;
-    right: 0px;
-    width: 10%;
-    height: 45px;
-    border-radius: 52%;
-    border-start-start-radius: 0;
-    border-end-start-radius: 0;
-    background: var(--gradient-2, linear-gradient(90deg, darkred 0%, red 100%));
-    border: 0;
-    display: inline-block;
-    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
-}
-/*hover effect*/
-button:hover {
-    color: #fff;
-    background-color: #1a1a1a;
-    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
-}
-/*button pressing effect*/
-button:active {
-    box-shadow: none;
-    transform: translateY(0);
-}
-
-.searchInput {
-  border:none;
-    width: 90%;
-    background: none;
-    outline: none;
-    color: white;
-    font-size: 15px;
-    padding: 10px 26px 10px 26px;
-    border-radius: 50px;
-}
-
-    </style>
+    <?php include 'buscador-style.php';?>
 </head>
   <body class="text-center bg-black m-auto">
     <nav class="navbar fixed-top p-3 pt-3 pb-3 header">
@@ -119,7 +69,7 @@ button:active {
                   </a>
                   <ul class="dropdown-menu bg-black">
                     <li><a class="nav-link text-white" href="https://goo.gl/maps/Xtx2LfqqBQJtF2j16" target="_blank"><i class="fa-solid fa-map-pin"></i> Casa Central</a></li>
-                    <li><a class="nav-link text-white" href="https://www.facebook.com/profile.php?id=100056706925841"><i class="fa-solid fa-map-pin"></i> Centro de Instalaciones</a></li>
+                    <li><a class="nav-link text-white" href="https://goo.gl/maps/Xtx2LfqqBQJtF2j16" target="_blank"><i class="fa-solid fa-map-pin"></i> Centro de Instalaciones</a></li>
                   </ul>
     <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -129,13 +79,11 @@ button:active {
                     <li><a class="nav-link text-white" href="https://www.instagram.com/hltuningpy_/">Instagram</a></li>
                     <li><a class="nav-link text-white" href="https://www.facebook.com/profile.php?id=100056706925841">Facebook</a></li>
                     <li><a class="nav-link text-white" href="https://www.tiktok.com/@hltuningpy">TikTok</a></li>
-
                   </ul>
                 </li>
                  <li><a href="services.php" class="nav-link text-white"><i class="fa-solid fa-car"></i> Servicios</a></li>
                    <li><a href="contacto.php" class="nav-link text-white"><i class="fa-solid fa-message"></i> Formulario de Contacto</a></li>
       <li>    </li>
-
                </ul>
             </div>
             <div class="navbar-fixed-bottom mb-0 text-white" style="background-color: #030303;">
@@ -146,7 +94,6 @@ button:active {
 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
 </svg></button>    
 </form> 
-
             <p class="cel-none"><i class="fa-solid fa-phone"></i> 0983047400</p>
             <p class=""><i class="fa-solid fa-envelope"></i> hltuning@hltuning.com</p>
             <a class="btn btn-success mb-2 mt-1 pc-none" href="tel:+595983047400"><i class="fa-solid fa-phone"></i> 0983047400</a>
@@ -154,7 +101,6 @@ button:active {
           </div>
           </div>
         </div>
-
       </nav>
 
       <div class="p-4"></div>
@@ -297,7 +243,7 @@ $conn->close();
 ?></div>
 </section>
 
-<div class="container mt-5 mb-4 m-1"> 
+<div class="container mt-5 mb-4 m-auto"> 
     <div class="row justify-content-between align-items-center p-2">
         <div class="col-md-6 ">
             <h2 class="mb-4 text-white bg-img-tr2">¡Contacto!</h2>
