@@ -1,4 +1,5 @@
 <?php
+session_start();
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASSWORD", "");
@@ -11,19 +12,42 @@ try {
     header("Location: error.php");
     exit();
 }
-?>
+// Función para obtener el nombre del producto según el ID
+function obtenerNombreProducto($productoId, $conn) {
+    $sql = "SELECT nombre FROM productos WHERE id = " . $productoId;
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row['nombre'];
+    } else {
+        return "Producto Desconocido";
+    }
+}
+
+if (isset($_POST['agregar_al_carrito'])) {
+    $productoId = $_POST['agregar_al_carrito'];
+    $_SESSION['carrito'][] = obtenerNombreProducto($productoId, $conn);
+}
+
+    $sql = "SELECT * FROM productos";
+    $result = $conn->query($sql);
+$sqll = "SELECT * FROM servivios";
+$resulttt = $conn->query($sqll);
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
-    <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/estilos.css">
-    <script src="https://kit.fontawesome.com/488435a96f.js" crossorigin="anonymous"></script>
-
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick-theme.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/hl/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/hl/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/hl/favicon-16x16.png">
+<link rel="manifest" href="/hl/site.webmanifest">
     <title>HL TUNING</title>
     <?php include 'buscador-style.php';?>
 </head>
@@ -169,11 +193,8 @@ try {
 <h2 class="mt-4" style="font-size:35px; color:white;">Productos Destacados</h2>
 <div class="row m-2">
     <?php
-    $sql = "SELECT * FROM productos";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
             $id = $row["id"];
             $nombre = $row["nombre"];
             $precio = $row["precio"];
@@ -189,10 +210,11 @@ try {
                 echo '    <div class="producto-text">';
                 echo '        <h5 class="producto-descripcion">' . $nombre . '</h5>';
                 echo '        <p class="producto-precio">Gs. ' . $precio . '</p>';
-                echo '        <a class="btn btn-primary btn-sm" href="https://api.whatsapp.com/send?phone=595983047400&text=Buenas%20me%20interesa%20el%20siguiente%20Producto:%20' . $nombre . '">';
-                echo '            Adquirir <i class="fab fa-whatsapp"></i>';
-                echo '        </a>';
-                if ($Instalacion == 'Si') {
+   echo ' <form method="post" action="carrito.php">';
+      echo '  <input type="hidden" name="agregar_al_carrito" value="'. $id .'" >';
+       echo ' <button type="submit">Agregar al Carrito</button>';
+   echo ' </form>';
+                    if ($Instalacion == 'Si') {
                     echo '  <p><span class="badge bg-success">Incluye Instalacion</span></p>';
                 } else {
                     echo '  <p><span hidden class="badge bg-success">HL Tuning</span></p>';
@@ -207,18 +229,12 @@ try {
     }
     ?>
 </div>
-
-
-
     <section class="mt-4 m-3">
       <h3>Servicios</h3>
   <div class="row">
 <?php
-$sql = "SELECT * FROM servivios";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
+if ($resulttt->num_rows > 0) {
+    while ($row = $resulttt->fetch_assoc()) {
         $id = $row["id"];
         $nombre = $row["nombre"];
         $imagen_url = $row["imagen_url"];
@@ -238,8 +254,6 @@ if ($result->num_rows > 0) {
 } else {
     echo "No se encontraron productos.";
 }
-
-$conn->close();
 ?></div>
 </section>
 
@@ -301,68 +315,9 @@ $conn->close();
 <article class="col-md-3 me-1"><img src="img/marcas/10.png" width="150px" alt=""></article>
 </div></div>
 
-
-  <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-box">
-                        
-                        <h3><i class="fa-solid fa-location-dot"></i> Casa Central:</h3>
-                    <p> General Caballero esq. Buenos Aires</p>
-                       <h3><i class="fa-solid fa-location-dot"></i> Centro de Instalaciones:</h3>
-                    <p> General Caballero esq. Buenos Aires</p>
-                   
-                    <h3><i class="fa-regular fa-clock"></i> Horario de atencion</h3>
-                    <p>Lunes a Sabados 7:00 a 18:00</p>
-
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-box">
-                <h1 style="font-size: 20px; font-weight: 700; text-decoration: double; color: rgb(255, 255, 255);
-                text-shadow: 1px 1px 2px rgb(255, 255, 255); text-align: center;">HL Tuning</h1>
-                    <ul>
-                        <li><a href="#">La empresa</a></li>
-                        <li><a href="#">Formulario de Contacto</a></li>
-                        <li><a href="#">Capacitate con nosotros</a></li>
-                        <li><a href="#">Trabaja con nosotros</a></li>
-                    </ul>
-                    </div>                    
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-box">
-                        <h2>Información Legal</h2>
-                    <ul>
-                        
-                        <li><a href="#">Términos y Condiciones</a></li>
-                        <li><a href="#">Políticas de Privacidad</a></li>
-                        <li><a href="#">Políticas de Envío</a></li>
-                        <li><a href="#">Cambios y Devoluciones</a></li>
-                    </ul>
-                    </div>                    
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-box">
-                        <h2>Suscríbete y recibí nuestras ofertas por correo</h2>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Ingresa tu Email" aria-label="Enter your Email ..." aria-describedby="basic-addon2">
-                            <span class="input-group-text" id="basic-addon2"><i class="fa fa-long-arrow-right"></i></span>
-                        </div>
-                        <h2>Redes Sociales</h2>
-                        <p class="socials">
-                            <i class="fa fa-facebook"></i>
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-tiktok"></i>
-                            <i class="fa fa-youtube"></i>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </footer>          
-      <div class="bg-black"><img width="150px" src="img/logo.png" alt="" srcset="" class="mb-3 mt-3"></div>   
+<?php
+include 'footer.php';
+?>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const productos = document.querySelectorAll('.producto-div');
@@ -377,12 +332,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+
+    <script src="https://kit.fontawesome.com/488435a96f.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
 <script>
-
   $(document).ready(function(){
   $('.marcas-img').slick({
   infinite: true,
@@ -429,5 +386,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
  });
 </script>
+
 </body>
 </html>

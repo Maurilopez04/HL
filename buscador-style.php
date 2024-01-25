@@ -37,7 +37,7 @@ button:active {
     width: 90%;
     background: none;
     outline: none;
-    color: white;
+    color: black;
     font-size: 15px;
     padding: 10px 26px 10px 26px;
     border-radius: 50px;

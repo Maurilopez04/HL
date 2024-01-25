@@ -104,12 +104,14 @@ if ($conn->connect_error) {
 <div class="row mt-5 m-2">
       <?php
 if (isset($_GET['enviar'])) {
-  $busqueda = "%" . $_GET['busqueda'] . "%";
+$busqueda = isset($_GET['busqueda']) ? '%' . htmlspecialchars($_GET['busqueda']) . '%' : '';
 
-  $stmt = $conn->prepare("SELECT * FROM productos WHERE descripcion LIKE ?");
-  $stmt->bind_param("s", $busqueda);
-  $stmt->execute();
-  $result = $stmt->get_result();
+if (!empty($busqueda)) {
+    // Utilizar sentencia preparada para prevenir inyección de SQL
+    $stmt = $conn->prepare("SELECT * FROM productos WHERE descripcion LIKE ?");
+    $stmt->bind_param("s", $busqueda);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
   if ($result->num_rows > 0) {
       while ($row = $result->fetch_array()) {
@@ -136,7 +138,7 @@ if (isset($_GET['enviar'])) {
     }else{
         echo'<h1>No se encontraron resultados</h1>';
     }  }
-
+}
       ?></div>
          <div class="container mt-5 mb-5"> <hr style="color:white;">
     <div class="row justify-content-between align-items-center p-2">
