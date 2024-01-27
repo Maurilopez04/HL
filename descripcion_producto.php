@@ -148,7 +148,7 @@ if ($conn->connect_error) {
                  echo '<p><b>Instalaciones: </b>Solo se realizan en el local y pueden tener un costo extra si requiere de accesorios extra</p>';
                  echo '<p><b>Proceso: </b>Se debe contactar con un vendedor (mediante WhatsApp, messenger o el Formulario de contacto) para acordar los costos, la disponibilidad, la instalacion, envio, etc.</p>';
                 echo ' <a style="background-color: #29A800;" class="btn w-100" href="https://api.whatsapp.com/send?phone=595983047400&text=Buenas%20me%20interesa%20el%20siguiente%20producto:%20'.$nombre.'"><i class="fa-brands fa-whatsapp"></i> Solicitar en WhatsApp</a>';
-                echo ' <a style="background-color: #800080;" class="btn w-100 mt-2" href="https://m.me/258535860997437/?&text=Buenas%20me%20interesa%20el%20siguiente%20producto:%20'.$nombre.'"><i class="fa-brands fa-facebook-messenger"></i> Solicitar en Messenger</a>';
+                echo ' <a style="background-color: blue;" class="btn w-100 mt-2" href="https://m.me/258535860997437/?&text=Buenas%20me%20interesa%20el%20siguiente%20producto:%20'.$nombre.'"><i class="fa-brands fa-facebook-messenger"></i> Solicitar en Messenger</a>';
                 echo '</div></div></div></div>';
 
             } else {
