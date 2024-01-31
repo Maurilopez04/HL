@@ -1,6 +1,6 @@
     <nav class="navbar fixed-top p-3 pt-3 pb-3 header">
         <div class="container-fluid p-2">
-          <a class="text-black link-secondary " href="index.php"><img width="180px" src="img/logo.png" alt="" srcset=""></a>
+          <a class="text-black link-secondary " href="index"><img width="170px" src="img/logo.png" alt="" srcset=""></a>
           <div class="centered-element cel-none">
 
           <form class="searchBox " action="resultados.php" method="get">
@@ -12,13 +12,17 @@
 </form>
           </div>
           <div>
-            <a class="btn p-1 ps-2 pe-2 navbar-dark  border-radius-2"  style="background: var(--gradient-2, linear-gradient(90deg, darkred 0%, red 100%));" href="carrito.php"><i class="fa-solid fa-cart-shopping"></i></a>
-            <button class="navbar-toggler navbar-dark border-radius-2" style="background: var(--gradient-2, linear-gradient(90deg, darkred 0%, red 100%));" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon "></span>
+            <a class="btn p-1 ps-2 pe-2 navbar-dark  border-radius-2"  style="background: var(--gradient-2, linear-gradient(90deg, darkred 0%, red 100%));" href="carrito.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+</svg></a>
+            <button class="navbar-toggler navbar-dark border border-radius-2" style="background: var(--gradient-2, linear-gradient(90deg, darkred 0%, red 100%));" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg>
                   </button>
                   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header bg-black">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><a href="https://hltuning.com"><img width=190px src="img/logo.png" alt="" srcset=""></a></h5>
+                  <div class="offcanvas-header bg-black">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><a href="index"><img width=190px src="img/logo.png" alt="" srcset=""></a></h5>
               <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body" style="background-color: #030303;">
@@ -50,7 +54,7 @@
                     <li><a class="nav-link text-white" href="https://www.tiktok.com/@hltuningpy">TikTok</a></li>
                   </ul>
                 </li>
-                 <li><a href="services.php" class="nav-link text-white"><i class="fa-solid fa-car"></i> Servicios</a></li>
+                 <li><a href="servicios.php" class="nav-link text-white"><i class="fa-solid fa-car"></i> Servicios</a></li>
                    <li><a href="contacto.php" class="nav-link text-white"><i class="fa-solid fa-message"></i> Formulario de Contacto</a></li>
       <li>    </li>
                </ul>

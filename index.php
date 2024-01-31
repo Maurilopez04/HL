@@ -14,11 +14,16 @@ if (isset($_POST['btnAgregar'])) {
 
     if (!isset($_SESSION['carrito'])) {
         $_SESSION['carrito'] = array(); 
+
     }
 
     $_SESSION['carrito'][] = $productoId;
 
-header("Location: index.php");
+header("Location: /HL/");
+}
+if ($_SERVER['REQUEST_URI'] == '/HL/index.php' or $_SERVER['REQUEST_URI'] == '/HL/index') {
+    header('Location: /HL/', true, 301);
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -119,9 +124,13 @@ $precioFormateado = number_format($row['precio'], 0, ',', '.');
                 echo '    <div class="producto-text">';
                 echo '        <h5 class="producto-descripcion">' . $nombre . '</h5>';
                 echo '        <p class="producto-precio">Gs. ' . $precioFormateado . '</p>';
-                echo '<form action="index.php" method="POST">';
+                echo '<form action="/HL/" method="POST">';
                 echo '<input type="hidden" name="carritoId" value="'. $id .'">';
-                echo '<button class="btn" type="submit" value="Agregar al Carrito" name="btnAgregar">Agregar al Carrito <i class="fa-solid fa-cart-shopping"></i></button>';
+                echo '<button class="btn" type="submit" value="Agregar al Carrito" name="btnAgregar">Agregar al Carrito 
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+</svg>
+</button>';
                 echo '</form>';
                 if ($Instalacion == 'Si') {
                     echo '  <p><span class="badge bg-success">Incluye Instalacion</span></p>';
@@ -216,11 +225,6 @@ document.addEventListener('DOMContentLoaded', function () {
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
 <script src="slick-config.js"></script>
-<script>
-    $(document).ready(function () {
-    // Muestra el toast al cargar la página
-    $('.toast').toast('show')
-})
-</script>
+
 </body>
 </html>

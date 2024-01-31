@@ -9,7 +9,9 @@ body {
 a {
     text-decoration: none;
 }
-
+hr {
+    background-color: #fff;
+}
 h2 {
     text-decoration: double;
     color: rgb(255, 255, 255);

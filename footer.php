@@ -1,4 +1,4 @@
-  <footer>
+<footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
@@ -18,10 +18,10 @@
                 <h1 style="font-size: 20px; font-weight: 700; text-decoration: double; color: rgb(255, 255, 255);
                 text-shadow: 1px 1px 2px rgb(255, 255, 255); text-align: center;">HL Tuning</h1>
                     <ul>
-                        <li><a href="la-empresa.php">La empresa</a></li>
-                        <li><a href="contacto.php">Formulario de Contacto</a></li>
-                        <li><a href="capacitate.php">Capacitate con nosotros</a></li>
-                        <li><a href="empleo.php">Trabaja con nosotros</a></li>
+                        <li><a href="Videos-Servicios">Videos de Servicios</a></li>
+                        <li><a href="contacto">Formulario de Contacto</a></li>
+                        <li><a href="contacto">Capacitate con nosotros</a></li>
+                        <li><a href="contacto">Trabaja con nosotros</a></li>
                     </ul>
                     </div>                    
                 </div>
@@ -29,11 +29,11 @@
                     <div class="single-box">
                         <h2>Información Legal</h2>
                     <ul>
+                        <li><a href="la-empresa">La empresa</a></li>
+                        <li><a href="terminos-condiciones">Términos y Condiciones</a></li>
+                        <li><a href="politicas-de-privacidad">Políticas de Privacidad</a></li>
                         
-                        <li><a href="terminos.php">Términos y Condiciones</a></li>
-                        <li><a href="#">Políticas de Privacidad</a></li>
-                        <li><a href="#">Políticas de Envío</a></li>
-                        <li><a href="#">Cambios y Devoluciones</a></li>
+                        <li><a href="cookies">Politica de Cookies</a></li>
                     </ul>
                     </div>                    
                 </div>
